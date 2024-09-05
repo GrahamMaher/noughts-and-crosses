@@ -34,3 +34,9 @@ def check_win(board, player):
         return True
 
     return False
+
+def check_draw(board):
+    """
+    Define the draw condition checking all spots are filled but the winning condition isn't met
+    """
+    return all([spot in ["X", "0"] for row in board for spot in row])
