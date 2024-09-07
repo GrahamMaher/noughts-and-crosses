@@ -26,7 +26,7 @@ def check_win(board, player):
     Check winning status on the printed board wether it is player i or j, checks both the rows of the board and the columns.
     """
     for i in range(3):
-        if all([spott == player for spot in board[i]]) or \
+        if all([spot == player for spot in board[i]]) or \
             all(board[j][i] == player for j in range(3)):
             return True
 
