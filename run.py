@@ -20,6 +20,7 @@ def print_board(board):
         print("-" * 9)
 
 
+
 def check_win(board, player):
     """
     Check winning status on the printed board wether it is player i or j, checks both the rows of the board and the columns.
@@ -40,3 +41,11 @@ def check_draw(board):
     Define the draw condition checking all spots are filled but the winning condition isn't met
     """
     return all([spot in ["X", "0"] for row in board for spot in row])
+
+def main():
+    """
+    Run all program functions
+    """
+    print("Welcome to Noughts and Crosses")
+    player_name = input("Please enter your name:")
+    welcome_message(player_name)
