@@ -43,7 +43,7 @@ def check_draw(board):
     return all([spot in ["X", "0"] for row in board for spot in row])
 
 
-def get_player_move():
+def get_player_move(player_name):
     """
     Prompt user to put in a input, validate whether the input is valid  and return it or print an error message stating how to correct it.
     """
@@ -53,11 +53,21 @@ def get_player_move():
             row, col = map(int, move.split())
             if row in range(1, 4) and col in range(1, 4):
                 return row - 1, col - 1
-                else:
+
+            else:
                     print("Invalid input. Please select a number between 1 and 3 for row and column values.")
                 
         except ValueError:
             print("Invalid input. Please enter two numbers seperated by a space.")
+
+
+def get_computer_move(board):
+    """
+    Generate a list of all available moves ont he board and randomly return a move for the opponent player.
+    """
+    available_moves = [(i, j) for i in range(3) for j in range(3) if board[i][j] == " "]
+    return random.choice(available_moves)
+
 
 
 def main():
