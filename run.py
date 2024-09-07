@@ -42,6 +42,24 @@ def check_draw(board):
     """
     return all([spot in ["X", "0"] for row in board for spot in row])
 
+
+def get_player_move():
+    """
+    Prompt user to put in a input, validate whether the input is valid  and return it or print an error message stating how to correct it.
+    """
+    while True:
+        move = input(f"{player_name} (Player X), enter your move (row and column):")
+        try:
+            row, col = map(int, move.split())
+            if row in range(1, 4) and col in range(1, 4):
+                return row - 1, col - 1
+                else:
+                    print("Invalid input. Please select a number between 1 and 3 for row and column values.")
+                
+        except ValueError:
+            print("Invalid input. Please enter two numbers seperated by a space.")
+
+
 def main():
     """
     Run all program functions
