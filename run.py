@@ -69,6 +69,17 @@ def get_computer_move(board):
     return random.choice(available_moves)
 
 
+def restart_game():
+    """
+    Create an option for the player to restart the game against the computer.
+    """
+    while True:
+        restart = input("Do you want to play again? (y/n): ").lower()
+        if restart in ['y', 'n']:
+            return restart == 'y'
+        else:
+            print("Invalid input. Please enter 'y' for yes or 'n' for no.")
+
 
 def main():
     """
@@ -101,7 +112,7 @@ def main():
         if check_win(board, current_player):
             print_board(board)
             if current_player == "X":
-                print(f"Congratulations, {player_name}! Yoou win!")
+                print(f"Congratulations, {player_name}! You win!")
             else:
                 print("You lose. Maybe next time.")
             break
@@ -113,6 +124,10 @@ def main():
 
 
         current_player = "0" if current_player == "X" else "X"
+
+    if not restart_game():
+        print("Thanks for playing, please come again.")
+        break
 
 if __name__ == "__main__":
     main()
