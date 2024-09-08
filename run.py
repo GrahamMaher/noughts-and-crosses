@@ -5,7 +5,7 @@ from colorama import init, Fore, Back, Style
 init(autoreset=True)
 
 X_COLOUR = Fore.LIGHTCYAN_EX + Back.LIGHTBLACK_EX
-O_COLOUR = Fore.LIGHTRED_EX + Back>LIGHTBLACK_EX
+O_COLOUR = Fore.LIGHTRED_EX + Back.LIGHTBLACK_EX
 
 def welcome_message(player_name):
     """
