@@ -1,5 +1,9 @@
 import random
 
+from colorama import init, Fore, Style
+
+init(autoreset=True)
+
 def welcome_message(player_name):
     """
     Print players name into the welcome message as well as give a brief desciption on how to play.
