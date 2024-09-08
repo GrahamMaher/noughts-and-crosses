@@ -44,7 +44,7 @@ def check_draw(board):
     """
     Define the draw condition checking all spots are filled but the winning condition isn't met
     """
-    return all([spot in [Fore.RED + "X" + style.RESET_ALL, Fore.Blue + "O" + Style.RESET_ALL] for row in board for spot in row])
+    return all([spot in [Fore.RED + "X" + Style.RESET_ALL, Fore.Blue + "O" + Style.RESET_ALL] for row in board for spot in row])
 
 
 def get_player_move(player_name):
@@ -107,7 +107,7 @@ def main():
                 row, col = get_computer_move(board)
 
             if board[row][col] == " ":
-                board[row][col] = Fore.RED + "X" + Style.RESET_ALL if current_player == "X" else Fore.BLUE + "O" +Style.RESET_ALL
+                board[row][col] = Fore.RED + "X" + Style.RESET_ALL if current_player == "X" else Fore.BLUE + "O" + Style.RESET_ALL
             else:
                 if current_player == "X":
                     print("This spot is already taken. Please try again.")
