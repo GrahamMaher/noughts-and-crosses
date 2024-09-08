@@ -44,7 +44,7 @@ def check_draw(board):
     """
     Define the draw condition checking all spots are filled but the winning condition isn't met
     """
-    return all([spot in [Fore.RED + "X" + Style.RESET_ALL, Fore.Blue + "O" + Style.RESET_ALL] for row in board for spot in row])
+    return all([spot in [Fore.RED + "X" + Style.RESET_ALL, Fore.BLUE + "O" + Style.RESET_ALL] for row in board for spot in row])
 
 
 def get_player_move(player_name):
