@@ -1,11 +1,11 @@
 import random
 
-from colorama import init, Fore, Back, Style
+from colorama import init, Fore, Style
 
 init(autoreset=True)
 
-X_COLOUR = Fore.BLACK + Back.BLUE
-O_COLOUR = Fore.BLACK + Back.LIGHTRED_EX
+X_COLOUR = Fore.LIGHTCYAN_EX
+O_COLOUR = Fore.LIGHTRED_EX
 
 def welcome_message(player_name):
     """
