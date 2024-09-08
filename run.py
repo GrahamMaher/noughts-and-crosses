@@ -40,7 +40,7 @@ def check_draw(board):
     """
     Define the draw condition checking all spots are filled but the winning condition isn't met
     """
-    return all([spot in ["X", "0"] for row in board for spot in row])
+    return all([spot in ["X", "O"] for row in board for spot in row])
 
 
 def get_player_move(player_name):
@@ -89,45 +89,45 @@ def main():
     player_name = input("Please enter your name:")
     welcome_message(player_name)
 
-    board = [[" " for _ in range(3)] for _ in range(3)]
-    current_player = "X"
+    while True:  # This loop allows restarting the game
+        board = [[" " for _ in range(3)] for _ in range(3)]  # Reset the board for each new game
+        current_player = "X"
 
-    while True:
-        print_board(board)
-
-        if current_player == "X":
-            row,col = get_player_move(player_name)
-        else:
-            print("Computers' turn.")
-            row, col = get_computer_move(board)
-
-        
-        if board[row][col] == " ":
-            board[row][col] = current_player
-        else:
-            if current_player == "X":
-                print("This spot is already taken. Please try again.")
-            continue
-
-        if check_win(board, current_player):
+        while True:  # This loop runs a single game
             print_board(board)
+
             if current_player == "X":
-                print(f"Congratulations, {player_name}! You win!")
+                row, col = get_player_move(player_name)
             else:
-                print("You lose. Maybe next time.")
-            break
+                print("Computer's turn.")
+                row, col = get_computer_move(board)
 
-        if check_draw(board):
-            print_board(board)
-            print("Draw, we all win, or everybody loses. Your choice.")
-            break
+            if board[row][col] == " ":
+                board[row][col] = current_player
+            else:
+                if current_player == "X":
+                    print("This spot is already taken. Please try again.")
+                continue
 
+            if check_win(board, current_player):
+                print_board(board)
+                if current_player == "X":
+                    print(f"Congratulations, {player_name}! You win!")
+                else:
+                    print("You lose. Maybe next time.")
+                break
 
-        current_player = "0" if current_player == "X" else "X"
+            if check_draw(board):
+                print_board(board)
+                print("Draw, we all win, or everybody loses. Your choice.")
+                break
 
-    if not restart_game():
-        print("Thanks for playing, please come again.")
-        break
+            current_player = "O" if current_player == "X" else "X"
+
+        if not restart_game():
+            print("Thanks for playing, please come again.")
+            break  # This break exits the main game loop
 
 if __name__ == "__main__":
     main()
+
