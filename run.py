@@ -4,6 +4,9 @@ from colorama import init, Fore, Style
 
 init(autoreset=True)
 
+X_COLOUR = Fore.LIGHTCYAN_EX
+O_COLOUR = Fore.LIGHTRED_EX
+
 def welcome_message(player_name):
     """
     Print players name into the welcome message as well as give a brief desciption on how to play.
@@ -44,7 +47,7 @@ def check_draw(board):
     """
     Define the draw condition checking all spots are filled but the winning condition isn't met
     """
-    return all([spot in [Fore.YELLOW + "X" + Style.RESET_ALL, Fore.GREEN + "O" + Style.RESET_ALL] for row in board for spot in row])
+    return all([spot in [X_COLOUR + "X" + Style.RESET_ALL, O_COLOUR + "O" + Style.RESET_ALL] for row in board for spot in row])
 
 
 def get_player_move(player_name):
@@ -107,7 +110,7 @@ def main():
                 row, col = get_computer_move(board)
 
             if board[row][col] == " ":
-                board[row][col] = Fore.YELLOW + "X" + Style.RESET_ALL if current_player == "X" else Fore.GREEN + "O" + Style.RESET_ALL
+                board[row][col] = X_COLOUR + "X" + Style.RESET_ALL if current_player == "X" else O_COLOUR + "O" + Style.RESET_ALL
             else:
                 if current_player == "X":
                     print("This spot is already taken. Please try again.")
