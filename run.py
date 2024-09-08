@@ -32,13 +32,15 @@ def check_win(board, player):
     """
     Check winning status on the printed board wether it is player i or j, checks both the rows of the board and the columns.
     """
+    player_mark = X_COLOUR + "X" + Style.RESET_ALL if player == "X" else O_COLOUR + "O" + Style.RESET_ALL
+
     for i in range(3):
-        if all([spot == player for spot in board[i]]) or \
-            all(board[j][i] == player for j in range(3)):
+        if all([spot == player_mark for spot in board[i]]) or \
+            all(board[j][i] == player_mark for j in range(3)):
             return True
 
-    if board[0][0] == board[1][1] == board[2][2] == player or \
-       board[0][2] == board[1][1] == board[2][0] == player:
+    if board[0][0] == board[1][1] == board[2][2] == player_mark or \
+       board[0][2] == board[1][1] == board[2][0] == player_mark:
         return True
 
     return False
