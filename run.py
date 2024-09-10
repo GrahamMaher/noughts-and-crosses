@@ -1,7 +1,15 @@
+"""
+Code to play noughts and crosses, made with python.
+"""
+
 import random
+
+
 from colorama import init, Fore, Style
 
+
 init(autoreset=True)
+
 
 X_COLOUR = Fore.LIGHTCYAN_EX
 O_COLOUR = Fore.LIGHTRED_EX
