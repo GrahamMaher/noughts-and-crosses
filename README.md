@@ -85,12 +85,12 @@ No other bugs known
 
 ## Development and deployment
 
-    - Cloning this repository from CI template
-    - Create a new Heroku app select the region and name it
-    - Add the buildpack in settings for Python first and then for Node Js
-    - Creating a Config Var called PORT with a value of 8000
-    - Link the Heroku app to the repository in Github
-    - Clicking Deploy
+   - Cloning this repository from CI template
+   - Create a new Heroku app select the region and name it
+   - Add the buildpack in settings for Python first and then for Node Js
+   - Creating a Config Var called PORT with a value of 8000
+   - Link the Heroku app to the repository in Github
+   - Click Deploy
 
 ## Credits
    - https://www.101computing.net/a-python-game-of-noughts-and-crosses/ -Assistance with design
